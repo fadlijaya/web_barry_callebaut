@@ -61,10 +61,11 @@ class _CreatePetaniPageState extends State<CreatePetaniPage> {
           'kelompok': _controllerKelompok.text,
           'alamat': _controllerAlamat.text,
           'dusun': _controllerDusun.text,
-          'desa/kelurahan': _controllerDesaKelurahan.text,
+          'desa_kelurahan': _controllerDesaKelurahan.text,
           'kecamatan': _controllerKecamatan.text,
           'kabupaten': _controllerKabupaten.text,
-          'jenis kelamin': _jekel.toString()
+          'jenis kelamin': _jekel.toString(),
+          'status ditambahkan': false
         }).then((value) {
           Future.delayed(const Duration(seconds: 3), (() => statusDialog()));
         });
