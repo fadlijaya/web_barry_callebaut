@@ -9,7 +9,7 @@ import '../../theme/padding.dart';
 
 class UpdatePetaniPage extends StatefulWidget {
   final bool isEdit;
-  final String uid;
+  final String docId;
   final String namaLengkap;
   final String nomorHp;
   final String tanggalLahir;
@@ -24,7 +24,7 @@ class UpdatePetaniPage extends StatefulWidget {
   const UpdatePetaniPage(
       {Key? key,
       required this.isEdit,
-      required this.uid,
+      required this.docId,
       this.namaLengkap = '',
       this.nomorHp= '',
       this.tanggalLahir= '',
@@ -76,7 +76,7 @@ class _UpdatePetaniPageState extends State<UpdatePetaniPage> {
     if (widget.isEdit) {
       DocumentReference document = FirebaseFirestore.instance
           .collection(collectionPetani)
-          .doc(widget.uid);
+          .doc(widget.docId);
 
       return FirebaseFirestore.instance
           .runTransaction((transaction) async {
@@ -87,7 +87,7 @@ class _UpdatePetaniPageState extends State<UpdatePetaniPage> {
             }
 
             transaction.update(document, <String, dynamic>{
-              'uid': widget.uid,
+              'docId': widget.docId,
               'nama lengkap': _controllerNamaLengkap.text,
               'nomor hp': _controllerNoHp.text,
               'tanggal lahir': _controllerTglLahir.text,

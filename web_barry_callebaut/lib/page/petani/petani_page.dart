@@ -20,7 +20,7 @@ class PetaniPage extends StatefulWidget {
 }
 
 class _PetaniPageState extends State<PetaniPage> {
-  showDataDetail(uid, namaLengkap, nomorHp, jekel,
+  showDataDetail(docId, namaLengkap, nomorHp, jekel,
       tanggalLahir, statusNikah, kelompok, alamat, dusun, desaKelurahan, kecamatan, kabupaten) {
     showDialog(
         context: context,
@@ -43,11 +43,11 @@ class _PetaniPageState extends State<PetaniPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        "UID",
+                        "DocID",
                         style: TextStyle(color: Colors.black54),
                       ),
                       Text(
-                        '$uid',
+                        '$docId',
                         style: const TextStyle(
                           color: Colors.black54,
                           fontWeight: FontWeight.bold,
@@ -385,11 +385,11 @@ class _PetaniPageState extends State<PetaniPage> {
                       child: Row(
                         children: const [
                           Text(
-                            "UID",
+                            "DocID",
                             style: TextStyle(color: kGreen),
                           ),
                           SizedBox(
-                            width: 260
+                            width: 180
                           ),
                           Text(
                             "Nama Lengkap",
@@ -433,7 +433,7 @@ class _PetaniPageState extends State<PetaniPage> {
                                   height: 40,
                                   child: Row(
                                     children: [
-                                      Text(data['uid']),
+                                      Text(data['docId']),
                                       const SizedBox(
                                         width: 60,
                                       ),
@@ -453,7 +453,7 @@ class _PetaniPageState extends State<PetaniPage> {
                                 children: [
                                   IconButton(
                                     onPressed: () => showDataDetail(
-                                        data['uid'],
+                                        data['docId'],
                                         data['nama lengkap'],
                                         data['nomor hp'],
                                         data['jenis kelamin'],
@@ -479,7 +479,7 @@ class _PetaniPageState extends State<PetaniPage> {
                                             builder: (context) =>
                                                 UpdatePetaniPage(
                                               isEdit: true,
-                                              uid: data['uid'],
+                                              docId: data['docId'],
                                               namaLengkap: data['nama lengkap'],
                                               nomorHp: data['nomor hp'],
                                               tanggalLahir: data['tanggal lahir'],

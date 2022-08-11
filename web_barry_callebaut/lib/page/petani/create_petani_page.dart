@@ -47,13 +47,16 @@ class _CreatePetaniPageState extends State<CreatePetaniPage> {
   Future<dynamic> addDataToFirebase() async {
     if (_formKey.currentState!.validate()) {
       try {
-        User? user = FirebaseAuth.instance.currentUser;
+        final docId = FirebaseFirestore.instance
+        .collection(collectionPetani)
+        .doc()
+        .id;
 
         await FirebaseFirestore.instance
             .collection(collectionPetani)
-            .doc(user!.uid)
+            .doc(docId)
             .set({
-          'uid': user.uid,
+          'docId': docId,
           'nama lengkap': _controllerNamaLengkap.text,
           'nomor hp': _controllerNoHp.text,
           'tanggal lahir': _controllerTglLahir.text,
